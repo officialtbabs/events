@@ -10,5 +10,11 @@ export interface ShuttlersRouteLayout {
     },
     events: {
         root: ShuttlersRouteStructure
-    }
+    },
+    // create: {
+    //     root: ShuttlersRouteStructure
+    // },
+    // myEvents: {
+    //     root: ShuttlersRouteStructure
+    // }
 }

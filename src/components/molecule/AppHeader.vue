@@ -1,17 +1,31 @@
 <template>
   <!-- <div class="bg-black pl-[150px] pr-24 h-[72px]"> -->
-    <div class="flex justify-between items-center bg-black pl-[150px] pr-24 h-[72px]">
-      <div class="flex gap-10">
-        <app-logo />
-        <router-link 
+    <div class="fixed flex justify-between items-center bg-black pl-[150px] pr-24 w-screen h-[72px]">
+        <div class="flex items-center gap-10 h-full">
+            <app-logo />
+            <router-link to="/" class="text-white text-sm h-full pt-6 font-bold border-green-500 hover:border-b-8">Charter</router-link>
+                    
+            <div class="relative h-full">
+              <button @click="isOpen = !isOpen" class="text-white text-sm h-full pt-6 flex font-bold border-green-500 hover:border-b-8">
+                  Event
+              </button>
+              <div v-if="isOpen" class="absolute left-0 bg-black py-6 rounded-b-lg shadow-xl grid gap-3">
+                  <router-link to="/events/create" class="text-white text-sm whitespace-nowrap h-[41px] px-5 font-bold border-green-500 hover:border-b-8">Create event</router-link>
+                  <router-link to="/events/my-events" class="text-white text-sm whitespace-nowrap h-[41px] px-5 font-bold border-green-500 hover:border-b-8">Manage event</router-link>
+              </div>
+            </div>
+            <router-link to="/" class="text-white text-sm h-full pt-6 font-bold border-green-500 hover:border-b-8">Home</router-link>
+            <router-link to="/" class="text-white text-sm h-full pt-6 font-bold border-green-500 hover:border-b-8">My bookings</router-link>
+            <router-link to="/" class="text-white text-sm h-full pt-6 font-bold border-green-500 hover:border-b-8">My wallet</router-link>
+        <!-- <router-link 
           v-for="(navigation, navigationIndex) in MainNavigations"
           :to="navigation.to" 
           :key="navigationIndex"
           class="text-white"
         >
           {{ navigation.title }}
-        </router-link>
-      </div>
+        </router-link> -->
+          </div>
       <div>
         <profile-card />
       </div>
@@ -87,7 +101,8 @@ export default Vue.extend({
     ProfileCard
   },
   data: () => ({
-    MainNavigations
+    MainNavigations,
+    isOpen: true
   })
 })
 </script>

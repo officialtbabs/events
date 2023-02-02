@@ -1,6 +1,6 @@
 import { ShuttlersRouteLayout } from '../interfaces/routes';
 
-export const shuttlersRoutes:ShuttlersRouteLayout = {
+export const shuttlersRoutes: ShuttlersRouteLayout = {
     home: {
         root: {
             path: '/',
@@ -13,4 +13,16 @@ export const shuttlersRoutes:ShuttlersRouteLayout = {
             name: 'Events'
         }
     }
+    // create: {
+    //     root: {
+    //         path: "create",
+    //         name: "Create"
+    //     }
+    // },
+    // myEvents: {
+    //     root: {
+    //         path: "my-events",
+    //         name: "MyEvents"
+    //     }
+    // }
 }

@@ -1,17 +1,10 @@
 <template>
-    <div>
+    <div class="relative">
         <app-header />
-        <router-view />
+        <div class="bg-[#F5F5F5] pt-[72px] h-screen overflow-auto">
+            <router-view />
+        </div>
     </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import AppHeader from '@/components/molecule/AppHeader.vue'
-export default Vue.extend({
-    name: 'App-Layout',
-    components: {
-        AppHeader
-    }
-})
-</script>
+<script lang="ts" src="./AppLayout.ts"></script>

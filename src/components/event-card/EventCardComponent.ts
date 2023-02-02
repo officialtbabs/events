@@ -1,6 +1,6 @@
 import Vue from "vue";
 
-const EventCardComponent = Vue.component('', {
+const EventCardComponent = Vue.component('event-card-component', {
 
 })
 
