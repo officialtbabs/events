@@ -1,6 +1,13 @@
-import Vue from "vue";
+import Vue, { defineAsyncComponent } from "vue";
 
-export default Vue.component('user-view',{
+const ProfileCardComponent = defineAsyncComponent(() => import('../../components/profile-card/ProfileCardComponent.vue'));
+const CreateCardComponent = defineAsyncComponent(() => import('../../components/create-event/CreateEventFormComponent.vue'));
+
+export default Vue.component('user-view', {
+    components: {
+        ProfileCardComponent,
+        CreateCardComponent
+    },
     data() {
         return {
             navData: [
