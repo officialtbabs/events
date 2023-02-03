@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkevents_assessment"]=self["webpackChunkevents_assessment"]||[]).push([[738],{7738:function(e,n,s){s.r(n),s.d(n,{default:function(){return p}});var t=function(){var e=this,n=e._self._c;e._self._setupProxy;return n("router-view")},u=[],r=s(7195);const l=r.ZP.component("event-component",{});var o=l,c=o,a=s(1001),f=(0,a.Z)(c,t,u,!1,null,null,null),p=f.exports}}]);
+//# sourceMappingURL=738.bd6a25b7.js.map

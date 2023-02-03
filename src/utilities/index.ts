@@ -1,1 +1,0 @@
-export { MainNavigations } from './navigations'
