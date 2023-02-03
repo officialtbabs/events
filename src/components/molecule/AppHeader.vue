@@ -102,7 +102,7 @@ export default Vue.extend({
   },
   data: () => ({
     MainNavigations,
-    isOpen: true
+    isOpen: false
   })
 })
 </script>
