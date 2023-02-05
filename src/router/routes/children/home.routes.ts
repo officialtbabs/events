@@ -8,6 +8,7 @@ export const homeRoutes = {
         {
             path: '',
             name: shuttlersRoutes.home.root.name,
+            component: () => import('@/views/index.vue')
         }
     ]
 }

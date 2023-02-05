@@ -2,19 +2,39 @@
     <div class="fixed flex justify-between items-center bg-black pl-[150px] pr-24 w-screen h-[72px] z-50">
         <div class="flex items-center gap-10 h-full">
             <app-logo />
-            <router-link to="/" class="text-white text-sm h-full pt-6 font-bold border-green-500 hover:border-b-8">Charter</router-link>
-            <div class="relative h-full">
-              <button @click="isOpen = !isOpen" class="text-white text-sm h-full pt-6 flex font-bold border-green-500 hover:border-b-8" :class="{'border-b-8' : ($route.name === 'Create' || $route.name === 'MyEvents')}">
-                  Event <img v-show="!isOpen" class="ml-2 mt-[7.5px]" src="@/assets/images/arrow-down.svg" alt="arrow-down" /> <img v-show="isOpen"  class="ml-2 mt-[7.5px]" src="@/assets/images/arrow-up.svg" alt="arrow-down" />
-              </button>
-              <div v-if="isOpen" class="absolute left-0 bg-black py-6 rounded-b-lg shadow-xl grid gap-3">
-                  <router-link @click.native="isOpen = !isOpen" to="/events/create" class="text-white text-sm whitespace-nowrap h-[41px] px-5 font-bold border-green-500 hover:border-b-8" :class="{'border-b-8': ($route.name === 'Create')}">Create event</router-link>
-                  <router-link @click.native="isOpen = !isOpen" to="/events/my-events" class="text-white text-sm whitespace-nowrap h-[41px] px-5 font-bold border-green-500 hover:border-b-8" :class="{'border-b-8': ($route.name === 'MyEvents')}">Manage event</router-link>
+            <template v-for="(nav, navIndex) in MainNavigations">
+              <router-link 
+                v-if="!nav.children"
+                :to="nav.to"
+                :key="navIndex" 
+                class="text-white text-sm h-full pt-6 font-bold border-green-500 hover:border-b-8"
+              >
+                {{nav.title}}
+              </router-link>
+              <div
+                v-else
+                :key="navIndex"
+                class="relative h-full"
+              >
+                <button 
+                  @click="isOpen = !isOpen" 
+                  class="text-white text-sm pt-6 flex items-center font-bold border-green-500 hover:border-b-8" 
+                  :class="{'border-b-8' : nav.children.map(obj => obj['to']).includes($route.path) }">
+                  <span class="mr-2">{{nav.title}}</span>
+                  <arrow-icon style="transition:0.5s" :class="[ { 'rotate-180' : isOpen	 }]"/>
+                </button>
+                <div v-if="isOpen" class="absolute left-0 bg-black py-6 rounded-b-lg shadow-xl grid gap-3">
+                    <router-link 
+                      v-for="(child, childIndex) in nav.children" 
+                      :key="childIndex" @click.native="isOpen = !isOpen" 
+                      :to="child.to" 
+                      class="text-white text-sm whitespace-nowrap h-[41px] px-5 font-bold border-green-500 hover:border-b-8"
+                    >
+                      {{ child.title }}
+                    </router-link>
+                </div>
               </div>
-            </div>
-            <router-link to="/" class="text-white text-sm h-full pt-6 font-bold border-green-500 hover:border-b-8">Home</router-link>
-            <router-link to="/" class="text-white text-sm h-full pt-6 font-bold border-green-500 hover:border-b-8">My bookings</router-link>
-            <router-link to="/" class="text-white text-sm h-full pt-6 font-bold border-green-500 hover:border-b-8">My wallet</router-link>
+            </template>
         </div>
         <div>
           <profile-card />
@@ -27,13 +47,13 @@ import Vue from 'vue';
 import AppLogo from '../atom/AppLogo.vue';
 import ProfileCard from './ProfileCard.vue'
 import { MainNavigations } from '@/utilities'
-
-
+import ArrowIcon from '../atom/icons/Arrow.vue'
 
 export default Vue.extend({
   components: {
     AppLogo,
-    ProfileCard
+    ProfileCard,
+    ArrowIcon
   },
   data: () => ({
     MainNavigations,

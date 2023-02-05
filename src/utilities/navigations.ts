@@ -24,11 +24,11 @@ export const MainNavigations:NavigationType[] = [
         children: [
             {
                 title: 'Create Events',
-                to: ''
+                to: '/events/create'
             },
             {
                 title: 'Manage Events',
-                to: ''
+                to: '/events/my-events'
             }
         ]
     },
