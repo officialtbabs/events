@@ -57,19 +57,22 @@
                         </span>
                     </div>
                 </div>
-                <div class="relative">
+                <div class="">
                     <p class="text-xs mb-2 font-medium text-start text-gray-500">Event banner</p>
-                    <div class="flex items-center justify-center w-full ">
-                        <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-[120px] border-2 border-gray-300 border-dashed rounded-lg cursor-pointer">
-                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-                                <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                            </div>
-                            <img class="absolute w-full h-[120px] rounded-lg" :class="{'hidden' : !isBannerSelected, 'block' : isBannerSelected}" ref="banner" src="" alt="">
-                            <input id="dropzone-file" type="file" accept="image/*" class="opacity-0" @change="selectBanner($event)" />
-                        </label>
-                    </div> 
+                    <div class="flex items-center justify-between">
+                        <div class="relative" :class="{'w-full' : !isBannerSelected, 'w-11/12' : isBannerSelected}">
+                            <label for="dropzone-file" class="w-full h-[120px] flex items-center justify-center border-2 border-gray-300 border-dashed rounded-lg cursor-pointer">
+                                <div class="flex flex-col items-center">
+                                    <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                </div>
+                            </label>
+                            <input id="dropzone-file" type="file" accept="image/*" ref="bannerInput" class="absolute top-0 h-[120px] z-10 opacity-0" @change="selectBanner($event)" />
+                            <img class="absolute top-0 w-full h-[120px] rounded-lg" :class="{'hidden' : !isBannerSelected, 'block' : isBannerSelected}" ref="banner" src="" alt="banner">
+                        </div> 
+                        <button @click.prevent="clearBanner" :class="{'hidden' : !isBannerSelected, 'block' : isBannerSelected}" type="button"><img class="bg-red-50 p-4 rounded-full" src="@/assets/images/cancel.svg" alt="cancel" /></button>
+                    </div>
                 </div>
                 <div class="flex items-center space-x-4">
                     <input @change="setFormValidity" class="border border-gray-300 w-[16.5px] h-[16.5px]" id="termsAndConditons" name="termsAndConditons" type="checkbox" v-model="payment">

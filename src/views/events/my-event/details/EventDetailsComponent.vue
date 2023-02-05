@@ -1,8 +1,8 @@
 <template>
-    <div class="px-[149px] py-16">
+    <div class="px-[150px] py-16">
         <div class="flex text-gray-500 text-sm font-medium space-x-2.5"><p>Events</p><img src="@/assets/images/arrow-right.svg" alt="arrow right" /><span><router-link  to="/events/my-events">My events</router-link></span><img src="@/assets/images/arrow-right.svg" alt="arrow right" /><span class="text-black">Event detail</span></div>
-        <div class="grid grid-cols-2 gap-x-[122px] text-justify py-12">
-            <div class="max-w-[489px]">
+        <div class="grid grid-cols-2 gap-x-[20%] text-justify py-12">
+            <div class="">
                 <p class="text-4xl font-bold text-black">RCCG 70th convention: Golden Jubilee celebration</p>
                 <p class="text-xl text-gray-500 mt-4 mb-9">The Bible is replete with virtually inexhaustible provisions for Man's comfort here on earth and in eternity. The oldest singular limitation is Man’s refusal to simply obey the WORD of GOD. 3 John 2 for instance reaffirmed God's persistent intention and plan for man: </p>
                 <div>
