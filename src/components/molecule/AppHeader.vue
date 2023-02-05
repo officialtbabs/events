@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed flex justify-between items-center bg-black pl-[150px] pr-24 w-screen h-[72px]">
+    <div class="fixed flex justify-between items-center bg-black pl-[150px] pr-24 w-screen h-[72px] z-50">
         <div class="flex items-center gap-10 h-full">
             <app-logo />
             <router-link to="/" class="text-white text-sm h-full pt-6 font-bold border-green-500 hover:border-b-8">Charter</router-link>
