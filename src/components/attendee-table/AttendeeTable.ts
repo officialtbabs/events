@@ -1,7 +1,7 @@
 import Vue, { ref } from "vue";
 
 const currentPage = ref(1);
-const totalPages = ref(0)
+const totalPages = ref(0);
 
 const AttendeeTable = Vue.component('attendee-table', {
     data: () => {
@@ -41,6 +41,9 @@ const AttendeeTable = Vue.component('attendee-table', {
                 }
             ]
         }
+    },
+    mounted () {
+        this.nextPage
     },
     methods: {
         nextPage: () => {

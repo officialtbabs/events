@@ -34,7 +34,7 @@
             <button @click="prevPage"
                     :disabled="currentPage === 1"
                     class="bg-white text-black px-3.5 py-2 rounded-lg flex items-center space-x-2 border border-gray-300 hover:border-gray-900">
-                    <img src="@/assets/images/arrow-left.svg" alt="prev" />
+                    <img src="@/assets/images/prev.svg" alt="prev" />
                     <p>Prev</p>
                 </button>
             <p class="px-4 py-2">Page {{ currentPage }} of {{ totalPages }}</p>
@@ -42,7 +42,7 @@
                     :disabled="currentPage === totalPages"
                     class="bg-white text-black px-3.5 py-2 rounded-lg flex items-center space-x-2 border border-gray-300 hover:border-gray-900">
                     <p>Next</p>
-                    <img src="@/assets/images/arrow-right.svg" alt="next" />
+                    <img src="@/assets/images/next.svg" alt="next" />
                 </button>
         </div>
     </div>
