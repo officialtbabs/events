@@ -79,17 +79,17 @@ export default Vue.component("create-card-component", {
       toggleSwitch () {
          this.returnTrip = !this.returnTrip;
       },
-       selectBanner (e: any) {
+      selectBanner (e: any) {
          const selectedFile = e.target;
          const reader = new FileReader();
 
-         const imgTag = this.$refs.banner as HTMLImageElement;
-         imgTag.title = selectedFile.name;
+         const banner = this.$refs.banner as HTMLImageElement;
+         banner.title = selectedFile.name;
 
          reader.onload = function(event) {
             if(event.target) {
-               imgTag.src = event.target.result as any;
-               if ( imgTag.src) {
+               banner.src = event.target.result as any;
+               if ( banner.src) {
                   isBannerSelected.value = true;
                }
             }
@@ -97,6 +97,13 @@ export default Vue.component("create-card-component", {
          reader.readAsDataURL(selectedFile.files[0]);
          uploadImage(selectedFile);
          this.setFormValidity();
+      },
+      clearBanner() {
+         const bannerInput = this.$refs.bannerInput as HTMLInputElement;
+         const banner = this.$refs.banner as HTMLImageElement;
+         bannerInput.value = "";
+         banner.src = "";
+         isBannerSelected.value = false;
       },
       setFormValidity () {
          this.isFormValid = false; 
