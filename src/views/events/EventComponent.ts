@@ -1,6 +1,5 @@
-import Vue from 'vue'
+import Vue from "vue";
 
-const EventComponent =  Vue.component('event-component', {
-})
+const EventComponent = Vue.component("event-component", {});
 
 export default EventComponent;

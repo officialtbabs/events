@@ -1,29 +1,29 @@
 <template>
   <transition name="shuttlers-kit-modal-fade">
-    <div v-show="value" class="shuttlers-kit-modal shuttlers-kit-modal--backdrop" >
+    <div
+      v-show="value"
+      @click="closeModal"
+      class="shuttlers-kit-modal shuttlers-kit-modal--backdrop"
+      id="backdrop"
+    >
       <div
-        class="shuttlers-kit-modal__dialog w-full min-h-[200px]"
+        class="shuttlers-kit-modal__dialog w-full min-h-[200px] max-w-[400px] w-full"
         role="dialog"
-        :style="{ maxWidth: `${width}` }"
         aria-labelledby="modalTitle"
         aria-describedby="modalDescription"
-        :id="modalId+new Date()"
+        :id="modalId + new Date()"
       >
         <header id="modalTitle" class="shuttlers-kit-modal__dialog__header">
-          <h1 class="text-[20px]">{{ modalTitle }}</h1>
-          <div
-            class="shuttlers-kit-modal__dialog__header--close"
-            aria-label="Close modal"
-            @click="closeModal"
-          >
-            <CloseIcon />
-          </div>
+          <slot name="head"></slot>
         </header>
-        <section id="modalDescription" class="shuttlers-kit-modal__dialog__body">
+        <section
+          id="modalDescription"
+          class="shuttlers-kit-modal__dialog__body"
+        >
           <slot name="body"></slot>
         </section>
 
-        <footer class="mt-auto flecx w-full" id="modal-footer">
+        <footer id="modal-footer">
           <slot name="footer"></slot>
         </footer>
       </div>
@@ -31,10 +31,9 @@
   </transition>
 </template>
 
-
 <script>
-import CloseIcon from "../atom/icons/CloseIcon.vue";
-export default {
+import Vue from "vue";
+const AppModal = Vue.component("app-modal", {
   data() {
     return {
       openMal: false,
@@ -47,15 +46,14 @@ export default {
     value: {
       type: Boolean,
     },
-    modalId:{
+    modalId: {
       type: String,
-      default: 'shuttlers-modal'
+      default: "shuttlers-modal",
     },
     modalTitle: {
       type: String,
     },
   },
-
   watch: {
     value(val) {
       if (val) {
@@ -67,18 +65,16 @@ export default {
       }
     },
   },
-  components: {
-    CloseIcon,
-  },
   methods: {
-    closeModal() {
-      this.$emit("closeModal");
+    closeModal(event) {
+      if (event.target.id === "backdrop") this.$emit("closeModal");
       document.body.style.overflow = "auto";
     },
   },
-};
-</script>
+});
 
+export default AppModal;
+</script>
 
 <style>
 .shuttlers-kit-modal {
@@ -97,7 +93,6 @@ export default {
 }
 
 .shuttlers-kit-modal--backdrop {
-  /* backdrop-filter: blur(10px); */
   background: #2b30454e !important;
   z-index: 999;
 }
@@ -105,28 +100,24 @@ export default {
 .shuttlers-kit-modal__dialog {
   border-radius: 16px;
   padding: 28px 32px;
-  max-height: calc(100vh - 20px);
   background: #fff;
-  /* overflow-x: auto; */
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  overflow: auto
+  overflow: auto;
 }
 
 .shuttlers-kit-modal__dialog__header {
   justify-content: space-between;
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   z-index: 10;
 }
 
 .shuttlers-kit-modal__dialog__header--close {
-  /* height: 40px;
-  width: 40px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,6 +127,7 @@ export default {
 
 .shuttlers-kit-modal__dialog__body {
   position: relative;
+  margin-bottom: 54px;
 }
 
 .shuttlers-kit-modal-fade-enter,
