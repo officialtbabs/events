@@ -20,7 +20,7 @@
             class="text-white text-sm h-full pt-6 flex font-bold border-green-500 hover:border-b-8"
             :class="{
               'border-b-8':
-                $route.name === 'Create' ||
+                $route.name === 'Create Events' ||
                 $route.name === 'Manage Events' ||
                 $route.name === 'Event Details',
             }"
@@ -85,6 +85,6 @@ export default Vue.extend({
         this.isOpen = !this.isOpen;
       }, 150);
     },
-  },
+  }
 });
 </script>

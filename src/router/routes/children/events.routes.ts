@@ -14,7 +14,7 @@ export const eventRoutes = {
     },
     {
       path: "create",
-      name: "Create",
+      name: "Create Events",
       component: () =>
         import("@/views/events/create/CreateEventFormComponent.vue"),
     },
