@@ -1,0 +1,1 @@
+export { MainNavigations } from './navigations'

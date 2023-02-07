@@ -12,6 +12,9 @@ module.exports = {
       '2xl': '1536px',
     },
     supports: {},
+    backgroundImage: {
+      select: "url('./src/assets/images/select-down.svg')"
+    },
     colors: ({ colors }) => ({
       inherit: colors.inherit,
       current: colors.current,
