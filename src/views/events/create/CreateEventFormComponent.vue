@@ -275,25 +275,6 @@
             </button>
           </template>
         </AppModal>
-        <!-- <div class="flex flex-col items-center">
-    <input type="file" @change="onFileChange"/>
-    <div class="flex flex-wrap mt-5">
-      <div 
-        v-for="image in images"
-        :key="image.id"
-        class="p-2 w-1/3"
-        @click="selectImage(image)"
-        @dragstart="onDragStart(image)"
-        @dragend="onDragEnd"
-        draggable
-      >
-        <img :src="image.url" alt="image">
-      </div>
-    </div>
-    <div v-if="selectedImage" class="mt-5">
-      <img :src="selectedImage.url" alt="selected image" class="w-64 h-64">
-    </div>
-  </div> -->
         <input
           :disabled="!isFormValid"
           class="w-full font-bold py-[13px] rounded-md"
