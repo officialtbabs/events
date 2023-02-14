@@ -3,6 +3,7 @@ import Vue, { ref } from "vue";
 import EventCardComponent from "@/components/event-card/EventCardComponent.vue";
 
 const eventList = ref();
+const isLoading = ref(true);
 
 const MyEventsComponent = Vue.component("my-event-component", {
   components: {
@@ -11,6 +12,7 @@ const MyEventsComponent = Vue.component("my-event-component", {
   data() {
     return {
       eventList: eventList,
+      isLoading: isLoading
     };
   },
   async mounted() {
@@ -18,6 +20,7 @@ const MyEventsComponent = Vue.component("my-event-component", {
       const result = await eventService.getEventsbyUserID();
       if (result) {
         eventList.value = [...result.data];
+        isLoading.value = false;
       }
     } catch (e) {
       console.error("error", e);

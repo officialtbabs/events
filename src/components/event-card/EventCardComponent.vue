@@ -3,11 +3,11 @@
     <div class="mb-10 overflow-hidden rounded-lg bg-white">
       <img :src="banner" alt="image" class="w-full h-[180px]" />
       <div class="px-5 pt-5 text-center">
-        <div class="flex justify-between items-start space-x-[97px]">
-          <h3 class="text-xl text-start font-bold truncate h-14">{{ title }}</h3>
+        <div class="flex justify-between items-start text gap-x-20">
+          <h3 class="text-xl text-start font-bold w-3/4 h-14">{{ title }}</h3>
           <router-link :to="{ name: 'Event Details', params: { id: id } }"
             ><img
-              class="scale-150 font-bold"
+              class=" font-bold"
               src="@/assets/images/more.svg"
               alt="more"
           /></router-link>

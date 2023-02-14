@@ -12,7 +12,7 @@
 
       <button class="flex items-center space-x-1.5">
         <img src="@/assets/images/download.svg" alt="download" />
-        <p class="ext-black text-sm font-bold">Export list</p>
+        <p class="text-black text-sm font-bold">Export list</p>
       </button>
     </div>
     <table class="w-full text-left border-collapse">

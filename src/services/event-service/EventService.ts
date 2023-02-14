@@ -6,8 +6,8 @@ export const createEvent = async (data: CreateEvent) => {
   const myHeaders = new Headers();
   myHeaders.append("Authorization", `Bearer ${token}`);
   myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("Access-Control-Allow-Headers", "*");
-  myHeaders.append("Access-Control-Allow-Headers", "Content-Type");
+//   myHeaders.append("Access-Control-Allow-Headers", "*");
+//   myHeaders.append("Access-Control-Allow-Headers", "Content-Type");
 
   const raw = {
     title: data.title,
@@ -45,8 +45,8 @@ export const getEventsbyUserID = async () => {
   const myHeaders = new Headers();
   myHeaders.append("Authorization", `Bearer ${token}`);
   myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("Access-Control-Allow-Headers", "*");
-  myHeaders.append("Access-Control-Allow-Headers", "Content-Type");
+//   myHeaders.append("Access-Control-Allow-Headers", "*");
+//   myHeaders.append("Access-Control-Allow-Headers", "Content-Type");
 
   const requestOptions: RequestInit = {
     method: "GET",

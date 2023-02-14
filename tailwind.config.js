@@ -115,6 +115,7 @@ module.exports = {
       ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
       pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       bounce: 'bounce 1s infinite',
+      // loading: 'loading 0.8s infinite',
     },
     aria: {
       checked: 'checked="true"',
@@ -596,6 +597,11 @@ module.exports = {
           animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
         },
       },
+      // loading: {
+      //   '100%' : {
+      //     transform: 'translateX(100%)',
+      //   }
+      // },
     },
     letterSpacing: {
       tighter: '-0.05em',

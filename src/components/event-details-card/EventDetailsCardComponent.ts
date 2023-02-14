@@ -1,5 +1,5 @@
 import Vue, { defineAsyncComponent } from "vue";
-import LinkIcon from "@/components/atom/icons/LinkIcon.vue"
+import LinkIcon from "@/components/atom/LinkIcon.vue"
 
 const EventDetailsCardComponent = Vue.component("event-details-card", {
   props: {

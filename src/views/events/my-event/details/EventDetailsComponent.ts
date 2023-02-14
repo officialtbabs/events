@@ -11,6 +11,7 @@ const description = ref("");
 const status = ref("");
 const location = ref("");
 const attendeesEstimate = ref(0);
+const isLoading = ref(true);
 
 const EventDetailsComponent = Vue.component("event-details-component", {
   props: {
@@ -32,6 +33,7 @@ const EventDetailsComponent = Vue.component("event-details-component", {
       status: status,
       location: location,
       attendeesEstimate: attendeesEstimate,
+      isLoading: isLoading
     };
   },
   async mounted() {
@@ -48,6 +50,7 @@ const EventDetailsComponent = Vue.component("event-details-component", {
         tripDate.value = new Date(eventData.value.tripDate)
           .toISOString()
           .split("T")[0];
+        isLoading.value = false;
       }
     } catch (e) {
       console.error("error", e);
